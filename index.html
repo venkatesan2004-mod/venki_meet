@@ -321,12 +321,15 @@ $("endBtn").addEventListener("click", endCall);
 
 (async function boot() {
   const room = new URLSearchParams(location.search).get("room");
-  if (room) {
-    $("startPanel").classList.add("hidden");
+ if (room) {
+    $("createBtn").classList.add("hidden");
+    $("startPanel").classList.remove("hidden");
+
     $("joinBtn").textContent = "Join this meeting";
     $("joinBtn").disabled = false;
-    setStatus("Invitation link detected. Select “Join this meeting” and allow camera/microphone access.");
-  } else {
+
+    setStatus("Invitation link detected. Select Join this meeting.");
+} else {
     setStatus("Create a meeting link to invite one participant. Firebase setup is required.");
   }
 })();
